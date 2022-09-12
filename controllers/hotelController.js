@@ -186,7 +186,7 @@ exports.searchResults = async(req, res, next) => {
         const searchQuery =  req.body;
         const searchData = await Hotel.aggregate([
             {$match: {$text: {$search: `\"${searchQuery.destination}\"`}}},
-            {$match: {available: true, star_rating: {gte: searchQuery.stars}}}
+            {$match: {available: true}}
         ])
         res.send(searchData)
     } catch (error) {
