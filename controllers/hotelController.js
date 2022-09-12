@@ -188,7 +188,7 @@ exports.searchResults = async(req, res, next) => {
             {$match: {$text: {$search: `\"${searchQuery.destination}\"`}}},
             {$match: {available: true, star_rating: {gte: searchQuery.stars}}}
         ])
-        res.send(searchQuery)
+        res.send(searchData)
     } catch (error) {
         next(error)
     }
