@@ -1,0 +1,20 @@
+//- this hotel variable holds individual hotel data allhotels json file in hotelcontrollers
+//-this hotel variable also hold json data given hotels in homePageFilters function
+//-we are getting here this with all_hotels.pug we passed to +hotel mixin in that file and any problem in file check video24
+mixin hotel(hotel)
+
+    .hotel
+      .hotel_img 
+        a(href=`/all/${hotel._id}`)
+          //- img(src=`/images/hotels/${hotel.image}`)
+          img(src=`https://res.cloudinary.com/dvew3l921/image/upload/${hotel.image}.jpg`)
+      .hotel_info 
+        a(href=`/all/${hotel._id}`)
+          h3=hotel.hotel_name
+        hr
+        if(url.startsWith('/all/'))
+          p=hotel.hotel_description
+          hr
+        p=`Star rating: ${hotel.star_rating}`
+        p= `Country: ${hotel.country}`
+        p= `Cost per night: ₹ ${hotel.cost_per_night}`
